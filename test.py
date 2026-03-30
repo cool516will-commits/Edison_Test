@@ -13,11 +13,10 @@ st.header("2. 投資與回本")
 transfer_fee = st.number_input("頂讓金 (投資總額)", value=200000)
 target_months = st.number_input("預計幾個月要回本？", value=12)
 
-st.header("3. 毛利與營運")
-# 假設進貨 6000 元可以賣出的總金額
-stock_cost = st.number_input("一次進貨成本 (元)", value=6000)
-expected_sales = st.number_input("這批貨預計可賣出的營業額 (元)", value=15000)
-days_per_month = st.number_input("每月工作天數", value=26)
+# 這裡定義你的 3 天一輪模式
+stock_per_batch = st.number_input("每次進貨成本 (6000元撐3天)", value=6000)
+sales_per_batch = st.number_input("這批貨(3天份)預計賣出的總營業額", value=15000)
+supplies_rate = st.slider("雜項佔比% (袋子、調料、損耗)", 0, 15, 7)
 
 # --- 計算邏輯 ---
 # 毛利率 = (售價 - 成本) / 售價
