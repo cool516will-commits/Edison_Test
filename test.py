@@ -13,19 +13,19 @@ st.header("2. 投資與回本")
 transfer_fee = st.number_input("頂讓金 (投資總額)", value=200000)
 target_months = st.number_input("預計幾個月要回本？", value=12)
 
-# --- 2. 修正後的進貨邏輯 ---
 st.header("2. 進貨與毛利設定 (核心修正)")
-# 這裡定義你的 3 天一輪模式
 stock_per_batch = st.number_input("每次進貨成本 (6000元撐3天)", value=6000)
 sales_per_batch = st.number_input("這批貨(3天份)預計賣出的總營業額", value=15000)
-supplies_rate = st.slider("雜項佔比% (袋子、調料、損耗)", 0, 15, 7)
+# 這裡加一個每月工作天數，方便後面計算 daily
+days_per_month = st.number_input("每月工作天數", value=26)
 
 # --- 計算邏輯 ---
 # 毛利率 = (售價 - 成本) / 售價
-if expected_sales > 0:
-    margin = (expected_sales - stock_cost) / expected_sales
+# 修正這裡的變數名稱，對應到上面的輸入
+if sales_per_batch > 0:
+    margin = (sales_per_batch - stock_per_batch) / sales_per_batch
 else:
-    margin = 0.6 # 預設 60%
+    margin = 0.6  # 預設 60%
 
 monthly_fixed_total = rent + utilities + other_fixed
 monthly_amortization = transfer_fee / target_months if target_months > 0 else 0
@@ -36,11 +36,11 @@ if st.button("開始計算"):
     
     # 損益平衡點 (不含頂讓金)
     be_monthly = monthly_fixed_total / margin if margin > 0 else 0
-    be_daily = be_monthly / days_per_month
+    be_daily = be_monthly / days_per_month if days_per_month > 0 else 0
     
     # 回本目標 (含頂讓金攤提)
     target_monthly = (monthly_fixed_total + monthly_amortization) / margin if margin > 0 else 0
-    target_daily = target_monthly / days_per_month
+    target_daily = target_monthly / days_per_month if days_per_month > 0 else 0
 
     col1, col2 = st.columns(2)
     
