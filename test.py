@@ -14,7 +14,7 @@ transfer_fee = st.number_input("頂讓金 (投資總額)", value=200000)
 target_months = st.number_input("預計幾個月要回本？", value=12)
 
 st.header("2. 進貨與毛利設定 (核心修正)")
-stock_per_batch = st.number_input("每次進貨成本 (6000元撐3天)", value=6000)
+stock_per_batch = st.number_input("每次進貨成本 (3天)", value=6000)
 sales_per_batch = st.number_input("這批貨(3天份)預計賣出的總營業額", value=15000)
 # 這裡加一個每月工作天數，方便後面計算 daily
 days_per_month = st.number_input("每月工作天數", value=26)
