@@ -13,6 +13,8 @@ st.header("2. 投資與回本")
 transfer_fee = st.number_input("頂讓金 (投資總額)", value=200000)
 target_months = st.number_input("預計幾個月要回本？", value=12)
 
+# --- 2. 修正後的進貨邏輯 ---
+st.header("2. 進貨與毛利設定 (核心修正)")
 # 這裡定義你的 3 天一輪模式
 stock_per_batch = st.number_input("每次進貨成本 (6000元撐3天)", value=6000)
 sales_per_batch = st.number_input("這批貨(3天份)預計賣出的總營業額", value=15000)
