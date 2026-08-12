@@ -10,7 +10,7 @@ utilities = st.number_input("水電瓦斯預估", value=5000)
 other_fixed = st.number_input("其他固定開銷 (如人事、雜支)", value=0)
 
 st.header("2. 加盟金與預期回本")
-transfer_fee = st.number_input("頂讓金 (加盟金總額)", value=200000)
+transfer_fee = st.number_input("加盟金 (加盟金總額)", value=200000)
 target_months = st.number_input("預計幾個月要回本？", value=12)
 
 st.header("3. 進貨與毛利設定 (核心修正)")
