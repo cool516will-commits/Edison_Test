@@ -1,6 +1,6 @@
 import streamlit as st
 
-st.title("創業經營回本計算機 🍢")
+st.title("創業成本計算機 🍢")
 st.write("輸入你的經營成本，幫你算出每日目標營業額！")
 
 # --- 設定輸入區 ---
