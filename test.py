@@ -50,6 +50,6 @@ if st.button("開始計算"):
 
     with col2:
         st.metric("每日回本目標", f"{int(target_daily)} 元")
-        st.caption(f"每天賣這麼多，可在 {target_months} 個月內拿回頂讓金。")
+        st.caption(f"每天賣這麼多，可在 {target_months} 個月內拿回加盟金。")
 
     st.info(f"💡 目前計算毛利率為：{margin*100:.1f}%")
